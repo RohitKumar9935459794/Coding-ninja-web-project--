@@ -1,0 +1,97 @@
+/* Basic styling for the video container */
+.video-container {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Flexbox styling for menu items with responsive layout */
+#menu-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Ensure 3 items per row on large screens */
+@media (min-width: 992px) {
+    .menu-item {
+        flex: 0 0 33.3333%;
+        max-width: 33.3333%;
+    }
+}
+
+/* Ensure 2 items per row on medium screens */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .menu-item {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+/* Ensure 1 item per row on small screens */
+@media (max-width: 767.98px) {
+    .menu-item {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+/* Hover effect for the menu card */
+.menu-item .card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #ddd; /* Original border for consistency */
+    border-radius: 5px;
+}
+
+/* Card scaling and shadow on hover */
+.menu-item .card:hover {
+    transform: scale(1.02); /* Slight scale up */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+/* Image scaling on hover */
+.menu-item img {
+    transition: transform 0.3s ease;
+    border-radius: 5px 5px 0 0;
+}
+
+.menu-item:hover img {
+    transform: scale(1.05); /* Slight zoom on image */
+}
+
+/* Overlay effect on hover */
+.menu-item .card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.15); /* Subtle dark overlay */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.menu-item:hover .card::before {
+    opacity: 1; /* Show overlay on hover */
+}
+
+/* Text content position to stay above overlay */
+.menu-item .card-body {
+    position: relative;
+    z-index: 2;
+}
+
+/* Responsive Navbar adjustments */
+.navbar-nav {
+    flex-direction: row;
+}
+
+@media (max-width: 576px) {
+    .navbar-collapse {
+        text-align: center;
+    }
+}
